@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.arisu-image {
+  animation: rotate 10s infinite linear;
+  box-shadow: 0 0 5rem 0 rgba(129, 12, 22, 0.40);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.gradient-text {
+  background-image: linear-gradient(to right, rgb(214, 40, 64), rgb(4, 4, 27));
+  background-clip: text;
+  color: transparent;
+}
