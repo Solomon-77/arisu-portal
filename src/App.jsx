@@ -84,7 +84,7 @@ function ChatRoom() {
           <span ref={dummy}></span>
         </div>
         <form onSubmit={sendMessage} className='flex items-center justify-center'>
-          <input className='border border-neutral-400 rounded-lg px-3 h-full w-full mr-3 py-2 outline-none bg-neutral-150' value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
+          <input className='border border-neutral-400 rounded-lg px-3 h-full w-full mr-3 py-2 outline-none bg-neutral-150' value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Your message here ..." />
           <button className='text-2xl mr-3 cursor-pointer' type="submit" disabled={!formValue}>🕊️</button>
         </form>
       </div>
