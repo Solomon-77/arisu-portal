@@ -104,18 +104,18 @@ function ChatRoom() {
 
   return (
     <main className='h-screen w-full bg-neutral-200 grid place-items-center font-inter'>
-      <div className='md:h-[90vh] h-screen md:w-[50%] w-full pb-[37px] pt-[58px] bg-white rounded-lg drop-shadow-lg'>
+      <div className='md:h-[90vh] h-screen md:w-[50%] w-full pb-[54px] pt-[58px] bg-white rounded-lg drop-shadow-lg'>
         <div onClick={() => auth.signOut()} className='fixed cursor-pointer top-[14px] right-6 px-3 rounded-md py-1 bg-neutral-700 text-white'>Sign out</div>
         <div className='fixed top-[14px] font-semibold text-xl left-5'>黑鬼喋喋不休</div>
         <div className='h-full overflow-auto p-10'>
           {messages && messages.map((msg, index) =>
             <ChatMessage key={`${msg.id} ${index}`} message={msg} />
           )}
-          <span ref={dummy}></span>
+          <div ref={dummy} />
         </div>
         <form onSubmit={sendMessage} className='flex items-center justify-center'>
-          <input className='border border-neutral-400 rounded-lg px-3 h-full w-full mr-3 py-2 outline-none bg-neutral-150' value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Your message here ..." />
-          <button className='text-2xl mr-3 cursor-pointer' type="submit" disabled={!formValue}>🕊️</button>
+          <input className='ml-[9px] mt-[8px] border border-neutral-400 rounded-lg px-3 h-full w-full mr-3 py-2 outline-none bg-neutral-150' value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="Your message here ..." />
+          <button className='text-2xl mr-4 mt-2 cursor-pointer' type="submit" disabled={!formValue}>🕊️</button>
         </form>
       </div>
     </main>
