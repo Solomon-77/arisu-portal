@@ -107,7 +107,7 @@ function ChatRoom() {
       <div className='md:h-[90vh] h-screen md:w-[50%] w-full pb-[54px] pt-[58px] bg-white rounded-lg drop-shadow-lg'>
         <div onClick={() => auth.signOut()} className='fixed cursor-pointer top-[14px] right-6 px-3 rounded-md py-1 bg-neutral-700 text-white'>Sign out</div>
         <div className='fixed top-[14px] font-semibold text-xl left-5'>黑鬼喋喋不休</div>
-        <div className='h-full overflow-auto p-10'>
+        <div className='h-full overflow-auto p-10 pb-7'>
           {messages && messages.map((msg, index) =>
             <ChatMessage key={`${msg.id} ${index}`} message={msg} />
           )}
