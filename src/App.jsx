@@ -54,6 +54,12 @@ function ChatRoom() {
   const [messages] = useCollectionData(query, { idField: 'id' });
   const [formValue, setFormValue] = useState('');
 
+  const offensiveWords = [
+    'nigga', 'n1gga', 'nigger', 'n1gg4', 'niigga', 'niggah',
+    'nigg', 'n1gg4', 'n1g', 'n1g4', 'nig4', 'n1gga', 'n1ggah',
+    'nigguh', 'nigg4', 'niig', 'niigg', 'niigah', 'niigguh', 'niggay',
+  ];
+
   useEffect(() => {
     dummy.current.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
@@ -62,14 +68,38 @@ function ChatRoom() {
     e.preventDefault();
     const { uid, photoURL } = auth.currentUser;
 
-    await messagesRef.add({
-      text: formValue,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-      uid,
-      photoURL
-    })
-    setFormValue('');
+    const isOffensive = offensiveWords.some(word => formValue.toLowerCase().includes(word));
 
+    if (isOffensive) {
+      setFormValue('');
+      const input = document.querySelector('input');
+      input.disabled = true;
+
+      let seconds = 60;
+      const timer = setInterval(() => {
+        input.placeholder = `Muted for ${--seconds} seconds`;
+        if (seconds <= 0) {
+          clearInterval(timer);
+          input.disabled = false;
+          input.placeholder = 'Your message here ...';
+        }
+      }, 1000);
+
+      await messagesRef.add({
+        text: `I'm muted for 1 minute for using the word ****`,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        uid,
+        photoURL
+      });
+    } else {
+      await messagesRef.add({
+        text: formValue,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        uid,
+        photoURL
+      });
+      setFormValue('');
+    }
   }
 
   return (
