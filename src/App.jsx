@@ -100,7 +100,7 @@ function ChatMessage(props) {
     <div className={`font-inter flex py-[6px] ${messageClass} `}>
       <div className={`flex items-center ${uid === auth.currentUser.uid ? 'flex-row-reverse' : ''}`}>
         <img src={photoURL} className='h-9 rounded-full' />
-        <p className={`max-w-[240px] px-[14px] break-words py-1 rounded-2xl ${uid === auth.currentUser.uid ? 'mr-2 bg-blue-500 text-white' : 'ml-2 bg-neutral-200'}`} >{text}</p>
+        <p className={`md:max-w-[240px] max-w-[200px] px-[14px] break-words py-1 rounded-2xl ${uid === auth.currentUser.uid ? 'mr-2 bg-blue-500 text-white' : 'ml-2 bg-neutral-200'}`} >{text}</p>
       </div>
     </div>
   </>)
