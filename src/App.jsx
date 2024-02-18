@@ -57,7 +57,7 @@ function ChatRoom() {
   const offensiveWords = [
     'nigga', 'n1gga', 'nigger', 'n1gg4', 'niigga', 'niggah',
     'nigg', 'n1gg4', 'n1g', 'n1g4', 'nig4', 'n1gga', 'n1ggah',
-    'nigguh', 'nigg4', 'niig', 'niigg', 'niigah', 'niigguh', 'niggay',
+    'nigguh', 'nigg4', 'niig', 'niigg', 'niigah', 'niigguh', 'niggay', 'ngga', 'n11gga', 'niga',
   ];
 
   useEffect(() => {
